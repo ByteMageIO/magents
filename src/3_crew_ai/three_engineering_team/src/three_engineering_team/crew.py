@@ -2,11 +2,6 @@ from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
-from crewai_tools import CodeInterpreterTool
-
-code_interpreter = CodeInterpreterTool(
-    user_docker_base_url="unix:///Users/murtazakhan/.docker/run/docker.sock"
-)
 
 @CrewBase
 class ThreeEngineeringTeam():
@@ -24,11 +19,6 @@ class ThreeEngineeringTeam():
         return Agent(
             config=self.agents_config['backend_engineer'],
             verbose=True,
-            # allow_code_execution=True,
-            # code_execution_mode="safe",
-            # max_execution_time=100,
-            # max_retry_limit=3,
-            tools=[code_interpreter],
         )
 
     @agent
@@ -36,7 +26,6 @@ class ThreeEngineeringTeam():
         return Agent(
             config=self.agents_config['frontend_engineer'],
             verbose=True,
-            tools=[code_interpreter],
         )
 
     @agent
@@ -44,11 +33,6 @@ class ThreeEngineeringTeam():
         return Agent(
             config=self.agents_config['test_engineer'],
             verbose=True,
-            # allow_code_execution=True,
-            # code_execution_mode="safe",
-            # max_execution_time=100,
-            # max_retry_limit=3,
-            tools=[code_interpreter],
         )
 
     @task

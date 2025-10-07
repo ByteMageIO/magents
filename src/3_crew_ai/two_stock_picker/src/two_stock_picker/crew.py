@@ -29,38 +29,3 @@ class TwoStockPicker():
 
     agents: List[BaseAgent]
     tasks: List[Task]
-    
-    @agent
-    def trending_companies_finder(self):
-        return Agent(config=self.agents_config['trending_companies_finder'], verbose=True, tools=[SerperDevTool()])
-
-    @agent
-    def financial_researcher(self):
-        return Agent(config=self.agents_config['financial_researcher'], verbose=True, tools=[SerperDevTool()])
-
-    @agent
-    def stock_picker(self):
-        return Agent(config=self.agents_config['stock_picker'], verbose=True, tools=[EmailTool()])
-
-    @task
-    def find_trending_companies(self):
-        return Task(config=self.tasks_config['find_trending_companies'], output_pydantic=TrendingCompaniesList)
-
-    @task
-    def research_trending_companies(self):
-        return Task(config=self.tasks_config['research_trending_companies'], output_pydantic=TrendingCompaniesResearchList)
-
-    @task
-    def pick_best_company(self):
-        return Task(config=self.tasks_config['pick_best_company'])
-
-    @crew
-    def crew(self):
-        return Crew(
-            agents=self.agents,
-            tasks=self.tasks,
-            verbose=True,
-            manager_agent=Agent(config=self.agents_config['manager'], verbose=True),
-            process=Process.hierarchical,
-            memory=True
-        )
