@@ -1,34 +1,15 @@
-researcher:
-  role: Senior Research Specialist for {topic}
-  goal: >
-    Find comprehensive and accurate information about {topic}
-    with a focus on recent developments and key insights
-  backstory: >
-    You are an experienced research specialist with a talent for
-    finding relevant information from various sources. You excel at
-    organizing information in a clear and structured manner, making
-    complex topics accessible to others.
-  llm: openai/gpt-4o-mini
-
-analyst:
-  role: Data Analyst and Report Writer for {topic}
-  goal: >
-    Analyze research findings and create a comprehensive, well-structured
-    report that presents insights in a clear and engaging way
-  backstory: >
-    You are a skilled analyst with a background in data interpretation
-    and technical writing. You have a talent for identifying patterns
-    and extracting meaningful insights from research data, then
-    communicating those insights effectively through well-crafted reports.
-  llm: openai/gpt-4o-mini
-
-email_sender:
-  role: Email Sender for {topic}
-  goal: >
-    Send an email to a recipient with the report
-  backstory: >
-    You are a skilled email sender with a background in email marketing
-    and technical writing. You have a talent for identifying patterns
-    and extracting meaningful insights from research data, then
-    communicating those insights effectively through well-crafted reports.
-  llm: openai/gpt-4o-mini
+# This file defines the configuration for the agents used in the one_crew_of_agents application.
+#
+# Each agent is specified as a YAML key with the following fields:
+#   - role:        A brief description of the agent's function.
+#   - goal:        The main objective the agent should accomplish.
+#   - backstory:   Background information to provide context and expertise for the agent.
+#   - llm:         The language model to be used for this agent.
+#
+# You can add new agents by following the same structure.
+# The placeholders {topic} will be dynamically replaced at runtime.
+#
+# Agents and their purpose:
+#   - researcher: Conducts thorough research on a given topic.
+#   - analyst: Analyzes research findings and creates a comprehensive report.
+#   - email_sender: Sends an email with the report.
